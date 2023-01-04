@@ -22,7 +22,7 @@ class _MainTabScreenState extends State<MainTabScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Rick&Morty")),
+      //appBar: AppBar(title: Text("Rick&Morty")),
       body: _screens[index],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: index,
