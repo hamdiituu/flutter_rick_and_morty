@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/character.dart';
+import '../models/pass_route_id.dart';
 
 class CharacterLine extends StatelessWidget {
   Character character;
@@ -12,7 +13,8 @@ class CharacterLine extends StatelessWidget {
         ListTile(
           onTap: () {
             //Navigator.of(context).pop();
-            Navigator.of(context).pushNamed("/character_detail");
+            Navigator.of(context)
+                .pushNamed("/character_detail", arguments: character);
             // Navigator.of(context).popAndPushNamed(routeName);
             //Navigator.of(context).popAndPushNamed("/character_detail");
 
