@@ -10,20 +10,29 @@ class CharacterLine extends StatelessWidget {
     return Column(
       children: [
         ListTile(
+          onTap: () {
+            //Navigator.of(context).pop();
+            Navigator.of(context).pushNamed("/character_detail");
+            // Navigator.of(context).popAndPushNamed(routeName);
+            //Navigator.of(context).popAndPushNamed("/character_detail");
+
+            // Navigator.pop(context);
+            // Navigator.push(context, route);
+            // Navigator.popAndPushNamed(context, routeName);
+            // Navigator.pushNamed(context, routeName)
+          },
           title: Text(
             character.name,
             style: TextStyle(fontWeight: FontWeight.w700),
           ),
           subtitle: Text(character.gender),
           trailing: Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.black, width: 1),
-              shape: BoxShape.circle 
-            ),
-            child: CircleAvatar(
-              backgroundImage: NetworkImage(character.image),
-            )
-          ),
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black, width: 1),
+                  shape: BoxShape.circle),
+              child: CircleAvatar(
+                backgroundImage: NetworkImage(character.image),
+              )),
           leading: Text(character.id.toString()),
         ),
         Divider(

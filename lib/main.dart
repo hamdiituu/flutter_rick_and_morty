@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import './screens/main_tab/main_tab_screen.dart';
+import './screens/character_detail_screen.dart';
 
-void main() => runApp(RickAndMorty());
+void main() => runApp(const RickAndMorty());
 
 class RickAndMorty extends StatelessWidget {
+  const RickAndMorty({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,11 @@ class RickAndMorty extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // A widget which will be started on application startup
-      home: MainTabScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => MainTabScreen(),
+        '/character_detail': (context) => CharacterDetailScreen()
+      },
     );
   }
 }
