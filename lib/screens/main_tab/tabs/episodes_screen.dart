@@ -106,10 +106,13 @@ class _EpisodesScreenState extends State<EpisodesScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            ..._episodes.map((episode) => EpisodeLine(episode: episode)),
+            ..._episodes
+                .map((episode) => EpisodeLine(episode: episode))
+                .toList(),
             if (_fetching)
-              Container(
-                  margin: EdgeInsets.only(top: 20),
+              SizedBox(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
                   child: Center(child: (CircularProgressIndicator())))
           ],
         ),

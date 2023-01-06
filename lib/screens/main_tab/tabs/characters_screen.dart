@@ -49,19 +49,18 @@ class _CharactersScreenState extends State<CharactersScreen> {
 
       for (var result in jsonResponse["results"] as List) {
         Character resultCharacter = Character(
-          id: result["id"],
-          name: result["name"],
-          status: result["status"],
-          species: result["species"],
-          type: result["type"],
-          gender: result["gender"],
-          origin: result["origin"],
-          location: result["location"],
-          image: result["image"],
-          episode: result["episode"],
-          url: result["url"],
-          created: result["created"]
-        );
+            id: result["id"],
+            name: result["name"],
+            status: result["status"],
+            species: result["species"],
+            type: result["type"],
+            gender: result["gender"],
+            origin: result["origin"],
+            location: result["location"],
+            image: result["image"],
+            episode: result["episode"],
+            url: result["url"],
+            created: result["created"]);
         responseCharacters.add(resultCharacter);
       }
 
@@ -89,36 +88,33 @@ class _CharactersScreenState extends State<CharactersScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Episodes"),
-        actions: [
-          if (_fetching)
-            Container(
-              margin: EdgeInsets.all(17),
-              height: 20,
-              width: 23,
-              child: (CircularProgressIndicator(
-                color: Colors.white,
-              )),
-            ),
-          if (!_fetching)
-            (IconButton(
-              icon: Icon(Icons.refresh),
-              onPressed: getCharacters,
-            ))
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            ..._characters.map((character) => CharacterLine(character: character)),
+        appBar: AppBar(
+          title: Text("Characters"),
+          actions: [
             if (_fetching)
               Container(
-                  margin: EdgeInsets.only(top: 20),
-                  child: Center(child: (CircularProgressIndicator())))
+                margin: EdgeInsets.all(17),
+                height: 20,
+                width: 23,
+                child: (CircularProgressIndicator(
+                  color: Colors.white,
+                )),
+              ),
+            if (!_fetching)
+              (IconButton(
+                icon: Icon(Icons.refresh),
+                onPressed: getCharacters,
+              ))
           ],
         ),
-      ),
-    );
+        body: _fetching
+            ? Center(child: CircularProgressIndicator())
+            : ListView.builder(
+                itemBuilder: (context, index) {
+                  var character = _characters[index];
+                  return CharacterLine(character: character);
+                },
+                itemCount: _characters.length,
+              ));
   }
 }
