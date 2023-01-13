@@ -97,7 +97,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
                 height: 20,
                 width: 23,
                 child: (CircularProgressIndicator(
-                  color: Colors.white,
+                  color: Colors.black,
                 )),
               ),
             if (!_fetching)

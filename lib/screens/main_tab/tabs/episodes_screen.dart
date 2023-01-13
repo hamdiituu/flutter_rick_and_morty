@@ -93,7 +93,7 @@ class _EpisodesScreenState extends State<EpisodesScreen> {
               height: 20,
               width: 23,
               child: (CircularProgressIndicator(
-                color: Colors.white,
+                color: Colors.black,
               )),
             ),
           if (!_fetching)
