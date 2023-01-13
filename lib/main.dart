@@ -15,7 +15,7 @@ class RickAndMorty extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // Application name
-      title: 'Flutter Hello World',
+      title: 'Rick and Morty Forever!',
       // Application theme data, you can set the colors for the application as
       // you want
       theme: ThemeData(
