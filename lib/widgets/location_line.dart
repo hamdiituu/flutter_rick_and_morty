@@ -10,6 +10,10 @@ class LocationLine extends StatelessWidget {
     return Column(
       children: [
         ListTile(
+          onTap: () {
+            Navigator.of(context)
+                .pushNamed("/location_detail", arguments: location);
+          },
           title: Text(
             location.name,
             style: TextStyle(fontWeight: FontWeight.w700),
