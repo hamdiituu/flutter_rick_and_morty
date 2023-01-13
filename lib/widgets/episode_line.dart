@@ -10,6 +10,10 @@ class EpisodeLine extends StatelessWidget {
     return Column(
       children: [
         ListTile(
+          onTap: () {
+            Navigator.of(context)
+                .pushNamed('/episode_detail', arguments: episode);
+          },
           title: Text(
             episode.episode,
             style: TextStyle(fontWeight: FontWeight.w700),

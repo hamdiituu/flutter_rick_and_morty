@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './screens/main_tab/main_tab_screen.dart';
 import './screens/character_detail_screen.dart';
+import './screens/episode_detail_screen.dart';
 
 void main() => runApp(const RickAndMorty());
 
@@ -23,7 +24,8 @@ class RickAndMorty extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => MainTabScreen(),
-        '/character_detail': (context) => CharacterDetailScreen()
+        '/character_detail': (context) => CharacterDetailScreen(),
+        '/episode_detail': (context) => EpisodeDetailScreen()
       },
     );
   }
